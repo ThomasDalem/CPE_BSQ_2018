@@ -9,7 +9,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int my_put_nbr(int nb);
 int my_getnbr(char const *str);
@@ -36,9 +35,6 @@ int get_file_size(char const *filepath, int fd, int *nb_rows, int *nb_cols)
     }
     file_size = sb.st_size;
     *nb_cols = file_size / *nb_rows - 1;
-    my_put_nbr(*nb_rows);
-    write(1, "\n", 1);
-    my_put_nbr(*nb_cols);
     return (*nb_rows);
 }
 
@@ -66,6 +62,8 @@ char **load_2d_arr_from_file(char const *filepath, int *nb_rows, int *nb_cols)
         }
         z++;
     }
+    my_put_nbr(*nb_rows);
+    my_put_nbr(*nb_cols);
     close(fd);
     free(buffer);
     return (arr);
