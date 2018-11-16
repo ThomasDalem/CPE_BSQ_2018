@@ -9,13 +9,12 @@
 int is_square_of_size(char **map, int row, int col, int square_size, int nb_rows);
 char **load_2d_array_from_file(char const *filepath, int nb_rows, int nb_cols);
 int my_put_nbr(int nb);
-int my_strlen(char const *str);
 void add_x(char **map, int pos_x, int pos_y, int square_size);
 
 void display_map(char **map, int nb_rows, int nb_cols)
 {
     for (int i = 0; i < nb_rows; i++)
-        write(1, map[i], nb_rows);
+        write(1, map[i], nb_cols);
 }
 
 int get_biggest_square(char **map, int pos_x, int pos_y, int nb_rows)
@@ -30,8 +29,8 @@ int get_biggest_square(char **map, int pos_x, int pos_y, int nb_rows)
 int find_biggest_square(char **map, int nb_rows, int nb_cols)
 {
     int biggest_square_size = 0;
-    int biggest_square_pos_x = 0;
-    int biggest_square_pos_y = 0;
+    int biggest_square_col = 0;
+    int biggest_square_row = 0;
     int square_size = 0;
 
     for (int y = 0; y < nb_rows; y++) {
@@ -39,12 +38,12 @@ int find_biggest_square(char **map, int nb_rows, int nb_cols)
             square_size = get_biggest_square(map, y, i, nb_rows);
             if (square_size > biggest_square_size) {
                 biggest_square_size = square_size;
-                biggest_square_pos_x = i;
-                biggest_square_pos_y = y;
+                biggest_square_col = i;
+                biggest_square_row = y;
             }
         }
     }
-    add_x(map, biggest_square_pos_y, biggest_square_pos_x, biggest_square_size);
+    add_x(map, biggest_square_row, biggest_square_col, biggest_square_size);
     display_map(map, nb_rows, nb_cols);
     return (biggest_square_size);
 }
