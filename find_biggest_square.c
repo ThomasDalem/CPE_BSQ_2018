@@ -13,8 +13,10 @@ void add_x(char **map, int pos_x, int pos_y, int square_size);
 
 void display_map(char **map, int nb_rows, int nb_cols)
 {
-    for (int i = 0; i < nb_rows; i++)
+    for (int i = 0; i < nb_rows; i++) {
         write(1, map[i], nb_cols);
+        write(1, "\n", 1);
+    }
 }
 
 int get_biggest_square(char **map, int pos_x, int pos_y, int nb_rows)

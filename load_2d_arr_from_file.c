@@ -12,6 +12,7 @@
 
 int my_put_nbr(int nb);
 int my_getnbr(char const *str);
+void display_map(char **map, int nb_rows, int nb_cols);
 
 int get_tab_size(char const *buffer, int *nb_rows, int *nb_cols, int file_size)
 {
@@ -50,7 +51,7 @@ char **load_2d_arr_from_file(char const *filepath, int *nb_rows, int *nb_cols)
     file_size = get_file_size(filepath);
     buffer = malloc(sizeof(char) * file_size);
     size = read(fd, buffer, file_size);
-    z = get_tab_size(buffer, nb_rows, nb_cols, file_size);
+    z = get_tab_size(buffer, nb_rows, nb_cols, file_size) - 1;
     arr = malloc(sizeof(char *) * *nb_rows);
     for (int i = 0; i < *nb_rows; i++)
         arr[i] = malloc(sizeof(char) * *nb_cols);
