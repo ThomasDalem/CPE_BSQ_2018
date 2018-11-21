@@ -5,13 +5,13 @@
 ## Makefile
 ##
 
-SRC	=	main.c			\
+SRC	=	main.c					\
 		find_biggest_square.c	\
-		is_square_of_size.c	\
+		is_square_of_size.c		\
 		load_2d_arr_from_file.c	\
-		my_put_nbr.c		\
-		my_putstr.c		\
-		my_getnbr.c		\
+		my_put_nbr.c			\
+		my_putstr.c				\
+		my_getnbr.c				\
 		my_putchar.c
 
 OBJ	=	$(SRC:.c=.o)

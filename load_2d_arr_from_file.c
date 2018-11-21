@@ -18,6 +18,10 @@ int get_tab_size(char const *buffer, int *nb_rows, int *nb_cols, int file_size)
 {
     int i = 0;
 
+    if (buffer[0] < '0' || buffer[0] > '9' || buffer == NULL) {
+        write(1, "Error with file format\n", 23);
+        exit(84);
+    }
     while (buffer[i] >= '0' && buffer[i] <= '9' && buffer[i] != '\n')
         i++;
     *nb_rows = my_getnbr(buffer);
