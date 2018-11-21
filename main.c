@@ -16,6 +16,5 @@ int main(int ac, char **av)
     }
     map = load_2d_arr_from_file(av[1], &nb_rows, &nb_cols);
     find_biggest_square(map, nb_rows, nb_cols);
-    write(1, "\n", 1);
     return (0);
 }
