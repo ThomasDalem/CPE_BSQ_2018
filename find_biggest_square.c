@@ -25,6 +25,7 @@ int get_biggest_square(char **map, int pos_x, int pos_y, int nb_rows)
     int square_size = 1;
 
     while (is_sqr_of_size(map, pos_x, pos_y, square_size, nb_rows) == 1)
+        square_size++;
     return (square_size - 1);
 }
 
