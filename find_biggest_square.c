@@ -2,8 +2,9 @@
 ** EPITECH PROJECT, 2018
 ** BSQ
 ** File description:
-** Bootstrap for BSQ
+** Finds the biggest square
 */
+#include <stdlib.h>
 #include <unistd.h>
 
 int is_square_of_size(char **map, int row, int col, int square_size, int nb_rows);
