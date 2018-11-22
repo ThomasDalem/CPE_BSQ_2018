@@ -5,16 +5,26 @@
 ## Makefile
 ##
 
-SRC	=	main.c					\
-		find_biggest_square.c	\
-		is_square_of_size.c		\
-		load_2d_arr_from_file.c	\
-		my_put_nbr.c			\
-		my_putstr.c				\
-		my_getnbr.c				\
-		my_putchar.c
+SRC		=	main.c			\
+			find_biggest_square.c	\
+			is_square_of_size.c	\
+			load_2d_arr_from_file.c	\
+			my_put_nbr.c		\
+			my_putstr.c		\
+			my_getnbr.c		\
+			my_putchar.c
 
-OBJ	=	$(SRC:.c=.o)
+TESTSRC	=	find_biggest_square.c		\
+			is_square_of_size.c	\
+			load_2d_arr_from_file.c	\
+			my_put_nbr.c		\
+			my_putstr.c		\
+			my_getnbr.c		\
+			my_putchar.c
+
+TESTS	=	tests/tests_bsq.c
+
+OBJ		=	$(SRC:.c=.o)
 
 NAME	=	bsq
 
@@ -31,3 +41,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+tests_run:
+	gcc -o unit_tests $(TESTS) $(TESTSRC) --coverage -lcriterion
+	./unit_tests

@@ -25,7 +25,7 @@ int check_line(char *line, int col, int square_size)
     return (1);
 }
 
-int is_square_of_size(char **map, int row, int col, int square_size, int nb_rows)
+int is_sqr_of_size(char **map, int row, int col, int square_size, int nb_rows)
 {
     for (int i = 0; i < square_size; i++) {
         if (row + i >= nb_rows)

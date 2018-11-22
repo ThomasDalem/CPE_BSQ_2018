@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int is_square_of_size(char **map, int row, int col, int square_size, int nb_rows);
+int is_sqr_of_size(char **map, int row, int col, int square_size, int nb_rows);
 char **load_2d_array_from_file(char const *filepath, int nb_rows, int nb_cols);
 int my_put_nbr(int nb);
 void add_x(char **map, int pos_x, int pos_y, int square_size);
@@ -24,12 +24,11 @@ int get_biggest_square(char **map, int pos_x, int pos_y, int nb_rows)
 {
     int square_size = 1;
 
-    while (is_square_of_size(map, pos_x, pos_y, square_size, nb_rows) == 1)
-        square_size++;
+    while (is_sqr_of_size(map, pos_x, pos_y, square_size, nb_rows) == 1)
     return (square_size - 1);
 }
 
-int find_biggest_square(char **map, int nb_rows, int nb_cols)
+void find_biggest_square(char **map, int nb_rows, int nb_cols)
 {
     int biggest_square_size = 0;
     int biggest_square_col = 0;
@@ -48,5 +47,4 @@ int find_biggest_square(char **map, int nb_rows, int nb_cols)
     }
     add_x(map, biggest_square_row, biggest_square_col, biggest_square_size);
     display_map(map, nb_rows, nb_cols);
-    return (biggest_square_size);
 }

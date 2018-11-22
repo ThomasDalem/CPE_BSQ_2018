@@ -7,8 +7,7 @@
 #include <unistd.h>
 
 char **load_2d_arr_from_file(char const *filepath, int *nb_rows, int *nb_cols);
-int is_square_of_size(char **map, int row, int col, int square_size);
-int find_biggest_square(char **map, int nb_rows, int nb_cols);
+void find_biggest_square(char **map, int nb_rows, int nb_cols);
 
 int main(int ac, char **av)
 {
@@ -22,6 +21,10 @@ int main(int ac, char **av)
         return (84);
     }
     map = load_2d_arr_from_file(av[1], &nb_rows, &nb_cols);
+    if (map == NULL) {
+        write(1, "Map loading error", 17);
+        return (84);
+    }
     find_biggest_square(map, nb_rows, nb_cols);
     return (0);
 }
