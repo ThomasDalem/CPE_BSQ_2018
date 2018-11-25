@@ -35,8 +35,8 @@ int get_file_size(char const *filepath)
     int file_size = 0;
 
     if (stat(filepath, &sb) == -1) {
-      write(1, "Error stat", 10);
-      exit(84);
+        write(1, "Error stat", 10);
+        exit(84);
     }
     file_size = sb.st_size;
     return (file_size);
